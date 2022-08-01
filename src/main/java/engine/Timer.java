@@ -13,7 +13,9 @@ public class Timer {
 
     public float getElapsedTime(){
         double time = getTime();
+        // On calcul l'écart entre deux temps
         float elapsedTime = (float) (time - lastLoopTime);
+        // On assigne time à lastLoopTime pour les prochains appel de la fonction.
         lastLoopTime = time;
         return elapsedTime;
     }
