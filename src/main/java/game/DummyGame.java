@@ -6,6 +6,8 @@ import static org.lwjgl.opengl.GL11.glViewport;
 
 import engine.IGameLogic;
 import engine.Window;
+import engine.graph.ShaderProgram;
+
 public class DummyGame implements IGameLogic {
     private int direction = 0;
 
@@ -13,12 +15,14 @@ public class DummyGame implements IGameLogic {
 
     private final Renderer renderer;
 
+
     public DummyGame() {
         renderer = new Renderer();
     }
 
     @Override
     public void init() throws Exception {
+
         renderer.init();
     }
 
@@ -50,6 +54,12 @@ public class DummyGame implements IGameLogic {
             window.setResized(false);
         }
         window.setClearColor(color, color, color, 0.0f);
-        renderer.clear();
+        renderer.render(window);
     }
+
+    @Override
+    public void cleanup() {
+        renderer.cleanup();
+    }
+
 }
